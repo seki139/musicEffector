@@ -1,15 +1,15 @@
 "use client";
 
-import { use, useState } from "react";
-import { useSelector } from "react-redux";
-import styles from "./page.module.css";
-import Image from "next/image";
-import GT from "../../public/IMG_6374.jpg";
-import LoginIcons from "../components/icons/loginIcon";
-import LogoutIcons from "../components/icons/logoutIcon";
-import RootState from "../components/types/reduxTypes";
+import { FormEvent, useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import styles from "./attendance.module.css";
+import axios from "axios";
+import RootState from "../../components/types/reduxTypes";
+import LogoutIcons from "../../components/icons/logoutIcon";
+import { logout } from "../../redux/counterSlice";
 
-const Home: React.FC = () => {
+const Logout: React.FC = () => {
+  const dispatch = useDispatch();
   const [openMenu, setOpenMenu] = useState(false);
   const menuFunction = () => {
     setOpenMenu(!openMenu);
@@ -18,21 +18,17 @@ const Home: React.FC = () => {
   const loginConfirm = useSelector(
     (state: RootState) => state.loginState.value
   );
+  const handleClick = () => {
+    dispatch(logout());
+    alert("ログアウトしました");
+  };
 
   return (
     <main>
-      {loginConfirm ? <LogoutIcons /> : <LoginIcons />}
-      <h1 className={styles.midashi}>music再現</h1>
-      <div className={styles.explanation}>
-        このサイトはgt1000(core)を用いて様々なアーティストの音を再現するための相談サイトです。
-      </div>
-      <Image
-        className={styles.pic}
-        src={GT}
-        alt="GT-1000"
-        width={500}
-        height={300}
-      />
+      <h1 className={styles.midashi}>ログアウト画面</h1>
+      <button className={styles.logout} onClick={handleClick}>
+        ログアウト
+      </button>
       <nav className={openMenu ? styles.navigation : styles.navbar}>
         <div className={styles.inner}>
           <ul>
@@ -48,7 +44,6 @@ const Home: React.FC = () => {
           </ul>
         </div>
       </nav>
-
       <div
         className={openMenu ? styles.openToggleBtn : styles.toggleBtn}
         onClick={() => menuFunction()}
@@ -65,4 +60,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Logout;
