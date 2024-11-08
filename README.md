@@ -1,7 +1,7 @@
 ## 【プレイ動画や作品URL】
 ローカルで動かしたプレイ動画をお見せします。
 プレイ動画https://youtu.be/QXC5tweoBVM
-https://youtu.be/cMIoqm9fYo8?feature=shared
+
 ＊実際に動かしたい場合は連絡をください
 
 ## 補足
