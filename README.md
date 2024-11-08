@@ -14,7 +14,6 @@ https://youtu.be/cMIoqm9fYo8?feature=shared
   - Redux
   - Next.js
   - MySQL
-  - html
   - css
 
 # musicEffector
