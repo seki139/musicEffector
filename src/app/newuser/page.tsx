@@ -1,4 +1,5 @@
 "use client";
+//新規会員登録ページ
 
 import { FormEvent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -16,7 +17,7 @@ const NewUser: React.FC = () => {
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
   const [pass, setPass] = useState("");
-  //const [message, setMessage] = useState("");
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     //api
@@ -32,21 +33,10 @@ const NewUser: React.FC = () => {
         alert(`${error.response.status}番のエラーが発生しました`);
       });
   };
-  /*.then((response) => setMessage(response.data))try {
-      await axios.post("/api/auth/register", {
-        name: name,
-        mail: mail,
-        pass: pass,
-      });
-    } catch (err) {
-      alert("登録に失敗しました");
-    }
-  };*/
   const loginConfirm = useSelector((state: RootState) => state.loginState);
 
   return (
     <main>
-      {loginConfirm ? <LogoutIcons /> : <LoginIcons />}
       <h1 className={styles.midashi}>ユーザー登録</h1>
       <div className={styles.position}>
         <form className="loginID" onSubmit={handleSubmit}>

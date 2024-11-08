@@ -1,5 +1,5 @@
 "use client";
-
+//ログアウトページ
 import { FormEvent, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./attendance.module.css";

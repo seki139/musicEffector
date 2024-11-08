@@ -1,5 +1,5 @@
 "use client";
-
+//ログインページ
 import { FormEvent, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./attendance.module.css";
@@ -34,11 +34,6 @@ const Login: React.FC = () => {
       // ユーザー情報を取得してReduxにdispatch
       const { userId, name } = data.usrInf;
       dispatch(login({ userId, name })); // id と name を渡す
-
-      // ログイン状態を確認してアラートを出す
-      /*if (loginConfirm) {
-        alert("ログインに成功しました");
-      }*/
     } catch (error) {
       // errorがAxiosError型かどうかを確認
       if (axios.isAxiosError(error)) {
@@ -50,29 +45,6 @@ const Login: React.FC = () => {
       }
     }
   };
-  /*await axios
-      .post("/api/auth/register", {
-        name: name,
-        pass: pass,
-      })
-      .then((response) => alert(response.data.message))
-      .catch((error) => {
-        //*2 非同期処理が失敗したらcatchの中身が処理される(エラーの内容をalertに出力する)
-        alert(`${error.response.status}番のエラーが発生しました`);
-      });
-    try {
-      await axios.post("http://localhost:8080", {
-        name: name,
-        pass: pass,
-      });
-    } catch (err) {
-      alert("ログインに失敗しました");
-    }
-    dispatch(login());
-    if (loginConfirm) {
-      alert("ログインに成功しました");
-    }
-  };*/
 
   return (
     <main>

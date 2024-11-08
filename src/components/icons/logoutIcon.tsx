@@ -1,3 +1,4 @@
+//ログアウトアイコン
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import Link from "next/link";
 import styles from "./icons.module.css"; // CSS モジュールが存在することを確認

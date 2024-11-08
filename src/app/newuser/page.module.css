@@ -34,7 +34,7 @@
   bottom: 0;
   opacity: 1;
   transition: 0.5s;
-  z-index: 3;
+  z-index: 9010;
 }
 
 .inner {
@@ -128,5 +128,5 @@
   height: 100%;
   opacity: 0.8;
   cursor: pointer;
-  z-index: 9000;
+  z-index: 9001;
 }

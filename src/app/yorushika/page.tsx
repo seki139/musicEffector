@@ -1,29 +1,18 @@
 "use client";
+//エフェクター紹介ページ
 
 import { FormEvent, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./page.module.css";
 import axios from "axios";
-import CommentInformation from "../../components/types/commentTypes";
-import {
-  CommentInfo,
-  CommentCatchInfo,
-} from "../../components/types/commentTypes";
-import LoginInformation from "../../components/types/loginTypes";
+import { CommentCatchInfo } from "../../components/types/commentTypes";
 import LoginIcons from "../../components/icons/loginIcon";
 import LogoutIcons from "../../components/icons/logoutIcon";
 import RootState from "../../components/types/reduxTypes";
-import { add } from "../../redux/commentSlice";
 
-import { useRouter } from "next/router";
 import { sub } from "../../redux/commentSlice";
-import { ok, ng } from "../../redux/inform";
 
 const Yorushika: React.FC = () => {
-  /*const [loginInformation, setLoginInformation] = useState<LoginInformation[]>(
-    []
-  );*/
-  //const [confirm, setConfirm] = useState(false);
   const [commentInfo, setCommentInfo] = useState<CommentCatchInfo[]>([]);
   const [openMenu, setOpenMenu] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
@@ -55,7 +44,7 @@ const Yorushika: React.FC = () => {
     }
   };
   useEffect(() => {
-    fetchInformation(); // 関数を呼び出す
+    fetchInformation();
   }, []);
 
   // 空の依存配列で初回のみデータを取得
@@ -109,14 +98,14 @@ const Yorushika: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    //console.log("送信ボタンが押されました");
+
     try {
       const response = await axios.post("/api/auth/registerComment", {
         userId: userData.userId,
         name: userData.name,
         comment: comment,
       });
-      //console.log("レスポンス:", response); // レスポンスをログに出力
+
       alert("登録に成功しました");
       setComment(""); // フォームをリセット
       fetchInformation();
@@ -129,7 +118,6 @@ const Yorushika: React.FC = () => {
       }
     }
   };
-  //console.log(loginInformation);
 
   return (
     <main>
@@ -292,20 +280,6 @@ const Yorushika: React.FC = () => {
           </button>
         </div>
       </div>
-
-      {/**   <div
-        className={openEdit ? styles.edit : styles.editHide}
-        onClick={areaEdit}
-      >
-        {openEdit && <Edit />}
-      </div>
-      
-      <div
-        className={openDelete ? styles.edit : styles.deleteHide}
-        onClick={areaDelete}
-      >
-        {openDelete && <Delete />}
-      </div>*/}
 
       <div
         className={openMenu ? styles.openToggleBtn : styles.toggleBtn}

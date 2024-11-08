@@ -1,5 +1,5 @@
 "use client";
-
+//ホームページ
 import { use, useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./page.module.css";
